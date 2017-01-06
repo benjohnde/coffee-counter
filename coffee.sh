@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # configuration
-repo=~/.coffee
+repo=~/.coffee/tracker
 file=consumed
+
+# variables
 filename=${repo}/${file}
 current=${PWD}
 
