@@ -19,6 +19,7 @@ coffee log
 
 ## Installation
 
+```bash
 mkdir ~/.coffee
 cd ~/.coffee
 curl -fsSLO https://raw.githubusercontent.com/benjohnde/coffee-counter/master/coffee.sh
@@ -26,3 +27,4 @@ chmod +x coffee.sh
 echo "alias coffee='sh ~/.coffee/coffee.sh'" >> ~/.bash_profile
 source ~/.bash_profile
 coffee init
+```
