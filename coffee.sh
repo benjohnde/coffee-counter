@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # configuration
-repo=tracker
+repo=~/.coffee
 file=consumed
 filename=${repo}/${file}
+current=${PWD}
 
 # git specific
 tracker_exists()
@@ -19,14 +20,14 @@ init()
   git init -q .
   echo "0" > ${filename}
   git commit -q -am "initial commit"
-  cd ..
+  cd $current
 }
 
 commit()
 {
   cd $repo
   git commit -q -am "uplifted"
-  cd ..
+  cd $current
 }
 
 # coffee counter
@@ -46,7 +47,7 @@ log()
 {
   cd $repo
   git log | grep Date | awk '{print " : "$4" "$3" "$6}' | uniq -c
-  cd ..
+  cd $current
 }
 
 usage()
