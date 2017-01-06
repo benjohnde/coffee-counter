@@ -9,18 +9,12 @@ filename=${repo}/${file}
 current=${PWD}
 
 # git specific
-tracker_exists()
-{
-  git rev-parse --abbrev-ref HEAD > /dev/null
-  return $?
-}
-
 init()
 {
   mkdir -p $repo
   cd $repo
   git init -q .
-  echo "0" > ${filename}
+  echo "0" > $filename
   git add -A
   git commit -q -m "initial commit"
   cd $current
