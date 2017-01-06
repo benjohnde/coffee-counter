@@ -16,14 +16,14 @@ init()
   git init -q .
   echo "0" > $filename
   git add -A
-  git commit -q -m "initial commit"
   cd $current
 }
 
 commit()
 {
   cd $repo
-  git commit -q -am "uplifted"
+  git add -A
+  git commit -q -m "uplifted"
   cd $current
 }
 
