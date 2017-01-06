@@ -11,12 +11,16 @@ current=${PWD}
 # git specific
 init()
 {
+  if [ -f "$filename" ]; then
+    return
+  fi
   mkdir -p $repo
   cd $repo
   git init -q .
   echo "0" > $filename
   git add -A
   cd $current
+  echo "ready to track your coffee addiction"
 }
 
 commit()
@@ -40,7 +44,12 @@ uplift()
 log()
 {
   cd $repo
+  echo "  --- : ----------------------------------------"
   git log | grep Date | awk '{print " : "$4" "$3" "$6}' | uniq -c
+  first=`git log $(git rev-list HEAD | tail -n 1) | grep Date | awk '{print ""$4" "$3" "$6}'`
+  echo "  --- : ----------------------------------------"
+  printf "  %-3s : TOTAL (since %s)\n" $(cat $filename) "$first"
+  echo "  --- : ----------------------------------------"
   cd $current
 }
 
