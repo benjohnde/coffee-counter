@@ -21,7 +21,8 @@ init()
   cd $repo
   git init -q .
   echo "0" > ${filename}
-  git commit -q -am "initial commit"
+  git add -A
+  git commit -q -m "initial commit"
   cd $current
 }
 
@@ -37,9 +38,6 @@ uplift()
 {
   old=$(cat $filename)
   new=$((old + 1))
-  echo $old
-  echo $new
-  echo $filename
   sed -e "s/${old}/${new}/g" ${filename} > ${filename}.tmp
   mv ${filename}.tmp ${filename}
 }
@@ -60,8 +58,8 @@ usage()
 
 # main
 case "$1" in
-  ("init") init ;;
-  ("up") uplift ;;
-  ("log") log ;;
-  (*) usage ;;
+  ("init")  init;;
+  ("up")    uplift; commit;;
+  ("log")   log;;
+  (*)       usage;;
 esac
