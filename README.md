@@ -2,15 +2,10 @@
 
 Tiny coffee-counter script to monitor your daily dose of caffeine, based on Git.
 
-Highly WIP.
-
 ## Usage
 
 ```bash
-# ramp up
-coffee init
-
-# consume some fresh brewed cup of coffee
+# track the injection of some fresh brewed cup of coffee
 coffee up
 
 # show your daily dose
@@ -22,3 +17,5 @@ coffee log
 ```bash
 curl https://raw.githubusercontent.com/benjohnde/coffee-counter/master/install.sh -sSf | sh
 ```
+
+The coffee-counter script will be installed in `~/.coffee`. To uninstall the script, just remove the alias from your `.bash_profile` and remove the directory.
