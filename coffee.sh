@@ -53,13 +53,14 @@ log()
   cd $current
 }
 
+# main
+
 usage()
 {
-  echo "Usage: $0 init | up | log" 1>&2
+  echo "Usage: $0 up | log" 1>&2
   exit 1
 }
 
-# main
 case "$1" in
   ("init")  init;;
   ("up")    uplift; commit;;
